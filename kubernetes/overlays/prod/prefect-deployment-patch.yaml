@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prefect-server
+spec:
+  template:
+    metadata:
+      annotations:
+        iam.amazonaws.com/role: "iff_aws_nsp_admin"
+    spec:
+      containers:
+      - name: prefect-server
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"

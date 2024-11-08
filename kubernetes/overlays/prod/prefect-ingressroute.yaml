@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prefect-server
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+  - match: PathPrefix(`/api`)
+    kind: Rule
+    services:
+    - name: prefect-server
+      port: 4200
+    middlewares:
+    - name: strip-prefix
+  tls: {}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-prefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /api

@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+
+commonLabels:
+  app.kubernetes.io/name: prefect-server
+  app.kubernetes.io/instance: production
+  app.kubernetes.io/managed-by: kustomize
+
+configMapGenerator:
+  - name: prefect-server-config
+    namespace: prefect
+    literals:
+      - PREFECT_SERVER_API_HOST=0.0.0.0
+      - PREFECT_SERVER_API_PORT=4200
+
+images:
+  - name: prefecthq/server
+    newTag: 2.11.4
