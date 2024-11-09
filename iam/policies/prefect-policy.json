@@ -1,0 +1,47 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "eks:DescribeCluster",
+                "eks:ListClusters",
+                "eks:DescribeFargateProfile",
+                "eks:ListFargateProfiles"
+            ],
+            "Resource": "arn:aws:eks:us-east-1:938398057556:cluster/protein-engineering-cluster-new"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:938398057556:log-group:/aws/eks/protein-engineering-cluster-new/fp-prefect*",
+                "arn:aws:logs:us-east-1:938398057556:log-group:/aws/eks/protein-engineering-cluster-new/fp-prefect*:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole",
+                "iam:ListAttachedRolePolicies"
+            ],
+            "Resource": "arn:aws:iam::938398057556:role/iff_aws_nsp_admin"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "eks:ListNodegroups",
+                "eks:DescribeNodegroup",
+                "eks:ListUpdates",
+                "eks:AccessKubernetesApi"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
