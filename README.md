@@ -88,15 +88,15 @@ resources:
 ### Common Issues
 
 1. "Backend not found" Error
-   - Verify Prefect server pod is running: `kubectl -n prefect get pods`
-   - Check service endpoints: `kubectl -n prefect get endpoints`
-   - Validate IngressRoute configuration: `kubectl -n prefect get ingressroute`
+   - Verify Prefect server pod is running: `kubectl -n fp-prefect get pods`
+   - Check service endpoints: `kubectl -n fp-prefect get endpoints`
+   - Validate IngressRoute configuration: `kubectl -n fp-prefect get ingressroute`
    - Review Traefik logs: `kubectl -n traefik logs -l app.kubernetes.io/name=traefik`
 
 2. IAM Permission Issues
    - Verify IAM role exists: `aws iam get-role --role-name iff_aws_nsp_admin`
-   - Check service account annotation: `kubectl -n prefect get serviceaccount prefect-server -o yaml`
-   - Review pod events: `kubectl -n prefect describe pod -l app=prefect-server`
+   - Check service account annotation: `kubectl -n fp-prefect get serviceaccount prefect-server -o yaml`
+   - Review pod events: `kubectl -n fp-prefect describe pod -l app=prefect-server`
 
 3. Network Connectivity Issues
    - Verify VPC and subnet configuration

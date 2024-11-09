@@ -11,7 +11,7 @@ NC='\033[0m'
 # Configuration variables
 CLUSTER_NAME="protein-engineering-cluster-new"
 REGION="us-east-1"
-NAMESPACE="prefect"
+NAMESPACE="fp-prefect"
 SERVICE_ACCOUNT_NAME="prefect-server"
 IAM_ROLE_NAME="iff_aws_nsp_admin"
 

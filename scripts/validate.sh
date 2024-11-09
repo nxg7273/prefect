@@ -11,7 +11,7 @@ NC='\033[0m'
 # Configuration variables
 CLUSTER_NAME="protein-engineering-cluster-new"
 REGION="us-east-1"
-NAMESPACE="prefect"
+NAMESPACE="fp-prefect"
 VPC_ID="vpc-0032fa4e426f1dfc3"
 SUBNETS=("subnet-0f3f61f029930428d" "subnet-0172579635b5ac6ea")
 SECURITY_GROUPS=("sg-0b066cd9be250c20e" "sg-0d1faeba7e5e80eba")
